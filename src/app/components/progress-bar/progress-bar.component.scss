@@ -1,0 +1,19 @@
+.progress-bar {
+    display: flex;
+
+    .bar-section {
+        height: 10px;
+    }
+
+    .green {
+        background: green;
+    }
+
+    .yellow {
+        background: yellow;
+    }
+
+    .black {
+        background: #2d2d32;
+    }
+}

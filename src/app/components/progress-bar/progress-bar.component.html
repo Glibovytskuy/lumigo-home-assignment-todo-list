@@ -1,0 +1,6 @@
+
+<div *ngIf="totalSum > 0" class="progress-bar">
+    <div data-tooltip="completed items" [style.width]="percentage[0]" class="bar-section green"></div>
+    <div data-tooltip="posponed items" [style.width]="percentage[1]" class="bar-section yellow"></div>
+    <div data-tooltip="in progress items" [style.width]="percentage[2]" class="bar-section black"></div>
+</div>

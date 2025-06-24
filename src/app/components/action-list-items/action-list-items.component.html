@@ -1,0 +1,16 @@
+@for (item of actionItem.items; track item) {
+    <div class="item" cdkDrag (cdkDragStarted)="dragStarted.emit()">
+        <span>{{ item }}</span>
+        <div class="actions">
+            <i data-tooltip="delete item" (click)="deleteItem(item)" class="icon-trash"></i>
+            <i data-tooltip="pospone item" *ngIf="isMoveToDoVisible" (click)="moveToDoLaterList(item)" class="icon-pause"></i>
+            <i data-tooltip="complete item" *ngIf="isMoveToCompletedVisible" (click)="moveToFinisheddList(item)" class="icon-check"></i>
+        </div>
+    </div>
+}
+
+@if (actionItem.items.length === 0) {
+    <div class="item">
+        You do not have any items in this list yet
+    </div>
+}

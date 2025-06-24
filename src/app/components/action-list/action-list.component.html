@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>Todo list app</h1>
+
+  <app-progress-bar [items]="itemsInActions"></app-progress-bar>
+
+  <div class="add-new-item">
+    <input placeholder="Add new item" #addItemInput type="text">
+    <i data-tooltip="create new item" (click)="addItemByActionType(addItemInput.value, actionTypes.inProgress); addItemInput.value = ''" class="icon-plus"></i>
+  </div>
+
+  <div class="add-new-item">
+    <input placeholder="Filter items" (input)="filterItems(filterItemInput.value)" #filterItemInput type="text">
+  </div>
+
+  <cdk-accordion [multi]="true">
+    @for (actionItem of actionItems; track actionItem; let index = $index) {
+    <cdk-accordion-item [expanded]="true" #accordionItem="cdkAccordionItem" role="button" tabindex="0"
+      [attr.id]="'accordion-header-' + index" [attr.aria-expanded]="accordionItem.expanded"
+      [attr.aria-controls]="'accordion-body-' + index">
+      <div class="action-item-header" (click)="accordionItem.toggle()">
+        <i class="icon-arrow-{{accordionItem.expanded ? 'down' : 'right'}}"></i>
+        {{ actionItem.type }}
+      </div>
+      <div class="accordion-item-body" role="region" [style.display]="accordionItem.expanded ? '' : 'none'"
+        [attr.id]="'accordion-body-' + index" [attr.aria-labelledby]="'accordion-header-' + index">
+        <div class="container">
+          <div cdkDropList id="list{{index + 1}}" [cdkDropListData]="actionItem.items"
+            [cdkDropListConnectedTo]="dragListNames" class="list" (cdkDropListDropped)="drop($event)">
+            <app-action-list-items 
+              (deleteItemFromList)="deleteItemFromList($event.item, $event.type)"
+              (moveItemIntoList)="addItemByActionType($event.item, $event.type)" 
+              [actionItem]="actionItem">
+            </app-action-list-items>
+          </div>
+        </div>
+      </div>
+    </cdk-accordion-item>
+    }
+  </cdk-accordion>
+
+  <span class="reset" (click)="resetProgress()">Reset Progress</span>
+</div>

@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background: #3c3c4b;;
+}
+
+[data-tooltip]:hover::after {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  content: attr(data-tooltip);
+  font-size: 14px;
+}

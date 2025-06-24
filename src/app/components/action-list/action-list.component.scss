@@ -1,0 +1,49 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+  color: white;
+  font-size: 16px;
+}
+
+.add-new-item {
+  background: #2d2d32;
+  margin: 20px 0;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+  }
+
+  i {
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+  }
+}
+
+.action-item-header {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-weight: bold;
+
+    i {
+      margin-right: 10px;
+    }
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 20px;
+}

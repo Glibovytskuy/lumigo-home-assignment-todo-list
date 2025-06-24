@@ -1,0 +1,31 @@
+.item {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    background: #4b4b5a;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        i {
+            margin-left: 15px;
+            cursor: pointer;
+            font-size: 22px;
+        }
+        .icon-trash {
+            color: red;
+        }
+
+        .icon-pause {
+            color: yellow;
+        }
+
+        .icon-check {
+            color: green;
+        }
+    }
+}
